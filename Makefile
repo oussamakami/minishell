@@ -1,5 +1,5 @@
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror -O3 -I /Users/yait-oul/.brew/opt/readline/include
 RM			=	rm -rf
 
 EXEC		=	dependencies/executions/builtin_export.c dependencies/executions/close_prgm.c\
@@ -30,7 +30,7 @@ NAME		=	minishell
 all			:	$(NAME)
 
 $(NAME)		:	$(COBJS) $(PARSINGOBJ) $(MODOBJ) $(EXECOBJ) $(LIBFT)
-				$(CC) $(CFLAGS) -o $(NAME) $(COBJS) $(MODOBJ) $(PARSINGOBJ) $(EXECOBJ) $(LIBFT) -lreadline
+				$(CC) $(CFLAGS) -o $(NAME) $(COBJS) $(MODOBJ) $(PARSINGOBJ) $(EXECOBJ) $(LIBFT) -lreadline -L /Users/yait-oul/.brew/opt/readline/lib
 $(LIBFT)	:
 				cd dependencies/libft && $(MAKE)
 clean		:
